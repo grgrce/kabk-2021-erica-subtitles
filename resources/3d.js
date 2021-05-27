@@ -111,8 +111,8 @@ const filenames = [
 	{
 		filename: 'blob-test',
 		position: {
-			x: -5,
-			y: 1,
+			x: -8,
+			y: -2,
 			z: 0
 		}
 	},
@@ -120,14 +120,14 @@ const filenames = [
 		filename: 'blob2',
 		position: {
 			x: 0,
-			y: 0,
+			y: -2,
 			z: -3
 		}
 	},
 	{
 		filename: 'blob1',
 		position: {
-			x: 8,
+			x: 10,
 			y: 0,
 			z: 0
 		}
@@ -149,7 +149,7 @@ filenames.forEach(file=>{
 		root.position.z = file.position.z;
 		objs.push(root);
 		scene.add(root);
-		root.scale.multiplyScalar(0.01)
+		root.scale.multiplyScalar(0.015)
 	});
 });
 
