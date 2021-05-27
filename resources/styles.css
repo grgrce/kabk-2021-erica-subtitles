@@ -1,0 +1,68 @@
+body, html {
+	height: 100%;
+}
+body {
+	background-color: #333;
+	color: #FFF;
+	min-height: 100vh;
+	width: 100%;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+h1 {
+	font-weight: normal;
+	font-size: 40px;
+	margin: 0;
+	line-height: 1;
+	margin-bottom: 1rem;
+}
+
+#title {
+	position: fixed;
+	z-index: 1;
+	pointer-events: none;
+	top: 0;
+	left: 0;
+	padding: 30px;
+}
+
+#subtitle-container {
+	font-size: 6vw;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	flex-flow: column nowrap;
+	position: absolute;
+	z-index: 10;
+	pointer-events: none;
+}
+
+#test {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	pointer-events: none;
+	display: none;
+}
+
+canvas#c {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: block;
+}
+
+#test canvas {
+
+}
+
+video {
+	width: 0;
+	height: 0;
+}
