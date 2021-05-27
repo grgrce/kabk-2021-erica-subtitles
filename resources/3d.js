@@ -32,7 +32,6 @@ function cueEnter(){
 	drawSubtitle(image, this.text, filename);
 }
 
-
 const canvas = document.querySelector('#c');
 const renderer = new THREE.WebGLRenderer({canvas, antialias: true});
 
@@ -49,6 +48,9 @@ controls.update();
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color('#222');
+
+
+// set the lighting and color of lighting
 
 {
 	const skyColor = 0xB1E1FF;  // light blue
@@ -75,6 +77,8 @@ var ctx = subtitleCanvas.getContext("2d");
 ctx.textBaseline = 'middle';
 drawSubtitle(false, 'Click to start');
 
+//document.querySelector('#test').appendChild(subtitleCanvas);
+
 const texture = new THREE.CanvasTexture(ctx.canvas);
 const material = new THREE.MeshPhongMaterial({
 	map: texture,
@@ -91,12 +95,12 @@ function drawSubtitle(image, subtitle, filename) {
 		image.onload = () => {
 			ctx.imageSmoothingEnabled = false;
 			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-			ctx.drawImage(image, 50, 50,540,540);
+			ctx.drawImage(image, 50, 50, 540, 540);
 		};
 		image.src = 'media/'+filename;
 	} else {
 		ctx.font = "40pt Helvetica";
-		ctx.fillStyle = "#fff";
+		ctx.fillStyle = "#ff0000";
 		const lines = getLines(ctx, subtitle, 500);
 		for(var i in lines){
 			ctx.fillText(lines[i], 0, 50 + i * 100);			
@@ -104,6 +108,7 @@ function drawSubtitle(image, subtitle, filename) {
 	}
 }
 
+// object filenames and positions
 
 const objs = [];
 
@@ -111,7 +116,7 @@ const filenames = [
 	{
 		filename: 'blob-test',
 		position: {
-			x: -8,
+			x: -12,
 			y: -2,
 			z: 0
 		}
@@ -138,7 +143,6 @@ filenames.forEach(file=>{
 	const objLoader = new OBJLoader();
 	objLoader.load('objs/'+file.filename+'.obj', (root) => {
 		root.traverse( function ( child ) {
-			console.log(child);
 			if ( child instanceof THREE.Mesh ) {
 				child.material = material;
 				child.material.side = THREE.DoubleSide;
