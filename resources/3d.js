@@ -47,7 +47,7 @@ controls.target.set(0, 0, 0);
 controls.update();
 
 const scene = new THREE.Scene();
-scene.background = new THREE.Color('#222');
+scene.background = new THREE.Color('#EBE9DA');
 
 
 // set the lighting and color of lighting
@@ -88,19 +88,19 @@ material.needsUpdate = true;
 
 
 function drawSubtitle(image, subtitle, filename) {
-	ctx.fillStyle = "#000000";
+	ctx.fillStyle = "#B0B0B0";
 	ctx.fillRect(0, 0, 540, 540); 
 	if(image){			
 		const image = new Image();
 		image.onload = () => {
 			ctx.imageSmoothingEnabled = false;
 			ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-			ctx.drawImage(image, 50, 50, 540, 540);
+			ctx.drawImage(image, 50, 50, 450, 450);
 		};
 		image.src = 'media/'+filename;
 	} else {
 		ctx.font = "40pt Helvetica";
-		ctx.fillStyle = "#ff0000";
+		ctx.fillStyle = "#56545A"; //color text subtitles
 		const lines = getLines(ctx, subtitle, 500);
 		for(var i in lines){
 			ctx.fillText(lines[i], 0, 50 + i * 100);			
@@ -130,11 +130,11 @@ const filenames = [
 		}
 	},
 	{
-		filename: 'blob1',
+		filename: 'plane',
 		position: {
-			x: 10,
-			y: 0,
-			z: 0
+			x: -10,
+			y: 10,
+			z: 10
 		}
 	}
 ];
